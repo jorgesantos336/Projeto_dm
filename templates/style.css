@@ -1,0 +1,473 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f1f8fc;
+
+    color: #17324d;
+
+    padding-bottom: 80px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+
+    height: 60px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-bottom: 1px solid #dce8ef;
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #18324a;
+}
+
+
+.logo-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 9px;
+
+    background: #244e70;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   MAPA
+========================= */
+
+.map-container {
+
+    width: 100%;
+
+    height: 390px;
+
+    background: #ddd;
+}
+
+
+#map {
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* =========================
+   OCORRÊNCIAS
+========================= */
+
+.ocorrencias {
+
+    padding: 14px 13px 30px;
+}
+
+
+.titulo-section {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+
+.titulo-section h2 {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #162e45;
+}
+
+
+.titulo-section span {
+
+    font-size: 12px;
+
+    color: #58728a;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.ocorrencia-card {
+
+    width: 100%;
+
+    min-height: 95px;
+
+    background: #ffffff;
+
+    border: 1px solid #cbdde8;
+
+    border-radius: 17px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    transition: 0.2s;
+}
+
+
+.ocorrencia-card:hover {
+
+    box-shadow: 0 3px 12px rgba(20, 70, 100, 0.08);
+
+    transform: translateY(-1px);
+}
+
+
+/* Informações */
+
+.ocorrencia-info {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.ocorrencia-info h3 {
+
+    font-size: 15px;
+
+    color: #142e46;
+
+    margin-bottom: 5px;
+}
+
+
+.categoria {
+
+    font-size: 11px;
+
+    color: #6b8092;
+
+    margin-bottom: 6px;
+}
+
+
+.endereco {
+
+    font-size: 11px;
+
+    color: #60788b;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status-area {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 95px;
+}
+
+
+.status {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+
+.status small {
+
+    font-size: 9px;
+
+    color: #587083;
+}
+
+
+.status-icon {
+
+    font-size: 19px;
+}
+
+
+.aberto .status-icon {
+
+    color: #ff9800;
+}
+
+
+.andamento .status-icon {
+
+    color: #008cff;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+.btn-detalhes {
+
+    border: none;
+
+    background: #128ca3;
+
+    color: white;
+
+    padding: 6px 10px;
+
+    border-radius: 12px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.btn-detalhes:hover {
+
+    background: #0b7286;
+
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+.bottom-menu {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #d0e0e9;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 100px;
+
+    z-index: 9999;
+}
+
+
+.menu-item {
+
+    text-decoration: none;
+
+    color: #627a8c;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    font-size: 10px;
+
+    min-width: 70px;
+}
+
+
+.menu-icon {
+
+    font-size: 25px;
+
+    line-height: 25px;
+}
+
+
+.menu-item:hover {
+
+    color: #128ca3;
+}
+
+
+.menu-item.ativo {
+
+    color: #1c506f;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 650px) {
+
+    .header {
+
+        height: 55px;
+    }
+
+
+    .logo {
+
+        font-size: 16px;
+    }
+
+
+    .map-container {
+
+        height: 300px;
+    }
+
+
+    .ocorrencia-card {
+
+        padding: 12px;
+
+        gap: 8px;
+    }
+
+
+    .ocorrencia-info h3 {
+
+        font-size: 14px;
+    }
+
+
+    .endereco {
+
+        font-size: 10px;
+    }
+
+
+    .status-area {
+
+        min-width: 80px;
+    }
+
+
+    .bottom-menu {
+
+        gap: 30px;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .map-container {
+
+        height: 270px;
+    }
+
+
+    .ocorrencia-card {
+
+        align-items: flex-start;
+    }
+
+
+    .status-area {
+
+        min-width: 75px;
+    }
+
+
+    .btn-detalhes {
+
+        font-size: 9px;
+
+        padding: 6px 8px;
+    }
+
+}

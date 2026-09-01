@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comunidade Conectada</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet - mapa -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="logo">
+            <div class="logo-icon">CC</div>
+            <span>Comunidade Conectada</span>
+        </div>
+
+    </header>
+
+
+    <!-- MAPA -->
+    <main>
+
+        <section class="map-container">
+
+            <div id="map"></div>
+
+        </section>
+
+
+        <!-- OCORRÊNCIAS -->
+        <section class="ocorrencias">
+
+            <div class="titulo-section">
+                <h2>Ocorrências recentes</h2>
+                <span>3 ativas</span>
+            </div>
+
+
+            <!-- CARD 1 -->
+            <article class="ocorrencia-card">
+
+                <div class="ocorrencia-info">
+
+                    <h3>Lixo acumulado na esquina</h3>
+
+                    <p class="categoria">
+                        Lixo acumulado
+                    </p>
+
+                    <p class="endereco">
+                        📍 Rua da Consolação, esquina com Av. Paulista
+                    </p>
+
+                </div>
+
+                <div class="status-area">
+
+                    <div class="status aberto">
+                        <span class="status-icon">⚠</span>
+                        <small>Aberto</small>
+                    </div>
+
+                    <button class="btn-detalhes">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+            <article class="ocorrencia-card">
+
+                <div class="ocorrencia-info">
+
+                    <h3>Buraco na rua</h3>
+
+                    <p class="categoria">
+                        Buraco na rua
+                    </p>
+
+                    <p class="endereco">
+                        📍 Av. Rebouças, próximo ao nº 1200
+                    </p>
+
+                </div>
+
+                <div class="status-area">
+
+                    <div class="status andamento">
+                        <span class="status-icon">◷</span>
+                        <small>Em andamento</small>
+                    </div>
+
+                    <button class="btn-detalhes">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 3 -->
+            <article class="ocorrencia-card">
+
+                <div class="ocorrencia-info">
+
+                    <h3>Poste de luz queimado</h3>
+
+                    <p class="categoria">
+                        Iluminação pública
+                    </p>
+
+                    <p class="endereco">
+                        📍 Rua Augusta, entre as ruas Frei Caneca e Peixoto Gomide
+                    </p>
+
+                </div>
+
+                <div class="status-area">
+
+                    <div class="status aberto">
+                        <span class="status-icon">⚠</span>
+                        <small>Aberto</small>
+                    </div>
+
+                    <button class="btn-detalhes">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- MENU INFERIOR -->
+    <nav class="bottom-menu">
+
+        <a href="#" class="menu-item ativo">
+
+            <span class="menu-icon">⌖</span>
+
+            <span>Mapa</span>
+
+        </a>
+
+
+        <a href="#" class="menu-item">
+
+            <span class="menu-icon">⊕</span>
+
+            <span>Denunciar</span>
+
+        </a>
+
+
+        <a href="#" class="menu-item">
+
+            <span class="menu-icon">♡</span>
+
+            <span>Ações</span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+
+        // Cria o mapa
+        const map = L.map('map').setView(
+            [-23.5614, -46.6565],
+            14
+        );
+
+        // Mapa OpenStreetMap
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution:
+                    '&copy; OpenStreetMap contributors'
+            }
+        ).addTo(map);
+
+
+        // Marcadores das ocorrências
+        const ocorrencias = [
+
+            {
+                lat: -23.5614,
+                lng: -46.6565,
+                titulo: "Lixo acumulado na esquina"
+            },
+
+            {
+                lat: -23.5580,
+                lng: -46.6730,
+                titulo: "Buraco na rua"
+            },
+
+            {
+                lat: -23.5550,
+                lng: -46.6620,
+                titulo: "Poste de luz queimado"
+            }
+
+        ];
+
+
+        // Adiciona os marcadores
+        ocorrencias.forEach(function(ocorrencia) {
+
+            L.marker([
+                ocorrencia.lat,
+                ocorrencia.lng
+            ])
+            .addTo(map)
+            .bindPopup(
+                `<strong>${ocorrencia.titulo}</strong>`
+            );
+
+        });
+
+    </script>
+
+</body>
+</html>

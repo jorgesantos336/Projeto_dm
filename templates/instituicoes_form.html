@@ -1,0 +1,176 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if instituicao %}
+            Editar instituição
+        {% else %}
+            Nova instituição
+        {% endif %}
+        - Denuncia Bairro
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                DB
+            </div>
+
+            Denuncia Bairro
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <div class="titulo-section">
+
+            <h2>
+
+                {% if instituicao %}
+                    Editar instituição
+                {% else %}
+                    Nova instituição
+                {% endif %}
+
+            </h2>
+
+        </div>
+
+
+        <form method="POST"
+              class="formulario">
+
+
+            <!-- CNPJ -->
+            <label for="cnpj">
+                CNPJ
+            </label>
+
+            <input
+                type="text"
+                id="cnpj"
+                name="cnpj"
+                placeholder="Ex: 12345678000100"
+                value="{{ instituicao.cnpj if instituicao else '' }}"
+                {% if instituicao %}
+                    readonly
+                {% endif %}
+                required
+            >
+
+
+            <!-- NOME -->
+            <label for="nome">
+                Nome da instituição
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Ex: Prefeitura Municipal"
+                value="{{ instituicao.nome if instituicao else '' }}"
+                required
+            >
+
+
+            <!-- TELEFONE -->
+            <label for="telefone">
+                Telefone
+            </label>
+
+            <input
+                type="text"
+                id="telefone"
+                name="telefone"
+                placeholder="(00) 00000-0000"
+                value="{{ instituicao.telefone if instituicao else '' }}"
+                required
+            >
+
+
+            <button type="submit"
+                    class="btn">
+
+                Salvar instituição
+
+            </button>
+
+        </form>
+
+
+        <a href="{{ url_for('listar_instituicoes') }}"
+           class="voltar">
+
+            ← Voltar para instituições
+
+        </a>
+
+    </main>
+
+
+    <!-- MENU INFERIOR -->
+    <nav class="bottom-menu">
+
+        <a href="{{ url_for('index') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏠</span>
+            Início
+
+        </a>
+
+
+        <a href="{{ url_for('listar_problemas') }}"
+           class="menu-item">
+
+            <span class="menu-icon">⚠️</span>
+            Problemas
+
+        </a>
+
+
+        <a href="{{ url_for('listar_usuarios') }}"
+           class="menu-item">
+
+            <span class="menu-icon">👤</span>
+            Usuários
+
+        </a>
+
+
+        <a href="{{ url_for('listar_instituicoes') }}"
+           class="menu-item ativo">
+
+            <span class="menu-icon">🏢</span>
+            Instituições
+
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
+```

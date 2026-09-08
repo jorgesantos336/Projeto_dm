@@ -1,0 +1,630 @@
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f8fc;
+    color: #17324d;
+    padding-bottom: 80px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+    height: 60px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #dce8ef;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #18324a;
+}
+
+.logo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: #244e70;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CONTAINER GERAL
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+
+/* =========================
+   MAPA
+========================= */
+
+.map-container {
+    width: 100%;
+    height: 390px;
+    background: #ddd;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================
+   OCORRÊNCIAS
+========================= */
+
+.ocorrencias {
+    padding: 14px 13px 30px;
+}
+
+.titulo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.titulo-section h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #162e45;
+}
+
+.titulo-section span {
+    font-size: 12px;
+    color: #58728a;
+}
+
+
+/* =========================
+   CARDS DE OCORRÊNCIA
+========================= */
+
+.ocorrencia-card {
+    width: 100%;
+    min-height: 95px;
+    background: #ffffff;
+    border: 1px solid #cbdde8;
+    border-radius: 17px;
+    padding: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: 0.2s;
+}
+
+.ocorrencia-card:hover {
+    box-shadow: 0 3px 12px rgba(20, 70, 100, 0.08);
+    transform: translateY(-1px);
+}
+
+
+/* Informações */
+
+.ocorrencia-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ocorrencia-info h3 {
+    font-size: 15px;
+    color: #142e46;
+    margin-bottom: 5px;
+}
+
+.categoria {
+    font-size: 11px;
+    color: #6b8092;
+    margin-bottom: 6px;
+}
+
+.endereco {
+    font-size: 11px;
+    color: #60788b;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    min-width: 95px;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.status small {
+    font-size: 9px;
+    color: #587083;
+}
+
+.status-icon {
+    font-size: 19px;
+}
+
+.aberto .status-icon {
+    color: #ff9800;
+}
+
+.andamento .status-icon {
+    color: #008cff;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: #128ca3;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #0b7286;
+    transform: translateY(-1px);
+}
+
+
+/* Botão detalhes */
+
+.btn-detalhes {
+    border: none;
+    background: #128ca3;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-detalhes:hover {
+    background: #0b7286;
+    transform: scale(1.03);
+}
+
+
+/* Botão editar */
+
+.btn.editar {
+    background: #244e70;
+}
+
+.btn.editar:hover {
+    background: #183b56;
+}
+
+
+/* Botão excluir */
+
+.btn.excluir {
+    background: #c0392b;
+}
+
+.btn.excluir:hover {
+    background: #962d22;
+}
+
+
+/* =========================
+   TÍTULO DAS PÁGINAS CRUD
+========================= */
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.topo h2 {
+    font-size: 20px;
+    color: #162e45;
+}
+
+
+/* =========================
+   TABELAS
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border: 1px solid #cbdde8;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: #244e70;
+    color: white;
+}
+
+th {
+    padding: 13px;
+    text-align: left;
+    font-size: 13px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e0ebf1;
+    font-size: 13px;
+    color: #405c72;
+}
+
+tbody tr:hover {
+    background: #f5fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   AÇÕES DA TABELA
+========================= */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.acoes form {
+    margin: 0;
+}
+
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+.formulario {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 1px solid #cbdde8;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(20, 70, 100, 0.06);
+}
+
+.formulario label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #17324d;
+}
+
+.formulario label:first-child {
+    margin-top: 0;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbdde8;
+    border-radius: 8px;
+    background: #fafdff;
+    color: #17324d;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    border-color: #128ca3;
+    box-shadow: 0 0 0 2px rgba(18, 140, 163, 0.1);
+}
+
+.formulario textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.formulario button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+/* =========================
+   LINK VOLTAR
+========================= */
+
+.voltar {
+    display: inline-block;
+    margin-top: 10px;
+    color: #244e70;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MENU PRINCIPAL
+========================= */
+
+.menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.card {
+    flex: 1;
+    min-width: 220px;
+    background: #ffffff;
+    padding: 25px;
+    border: 1px solid #cbdde8;
+    border-radius: 17px;
+    text-decoration: none;
+    color: #17324d;
+    box-shadow: 0 3px 12px rgba(20, 70, 100, 0.05);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(20, 70, 100, 0.1);
+    border-color: #128ca3;
+}
+
+.card h3 {
+    color: #244e70;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #60788b;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #ffffff;
+    border-top: 1px solid #d0e0e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    z-index: 9999;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #627a8c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 10px;
+    min-width: 70px;
+}
+
+.menu-icon {
+    font-size: 25px;
+    line-height: 25px;
+}
+
+.menu-item:hover {
+    color: #128ca3;
+}
+
+.menu-item.ativo {
+    color: #1c506f;
+}
+
+
+/* =========================
+   MENSAGEM DE LISTA VAZIA
+========================= */
+
+.vazio {
+    text-align: center;
+    padding: 30px;
+    color: #6b8092;
+    background: #ffffff;
+    border: 1px solid #cbdde8;
+    border-radius: 12px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        height: 55px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    .ocorrencia-card {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .ocorrencia-info h3 {
+        font-size: 14px;
+    }
+
+    .endereco {
+        font-size: 10px;
+    }
+
+    .status-area {
+        min-width: 80px;
+    }
+
+    .bottom-menu {
+        gap: 30px;
+    }
+
+    /* Tabela */
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Menu */
+
+    .menu {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    /* Topo */
+
+    .topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .topo .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ações */
+
+    .acoes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .map-container {
+        height: 270px;
+    }
+
+    .ocorrencia-card {
+        align-items: flex-start;
+    }
+
+    .status-area {
+        min-width: 75px;
+    }
+
+    .btn-detalhes {
+        font-size: 9px;
+        padding: 6px 8px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .formulario {
+        padding: 18px;
+    }
+
+    .bottom-menu {
+        gap: 10px;
+    }
+
+    .menu-item {
+        min-width: 60px;
+    }
+
+}
+

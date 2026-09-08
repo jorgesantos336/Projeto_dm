@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Problemas</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Problemas</h1>
+    </header>
+
+    <main class="container">
+
+        <div class="topo">
+
+            <h2>Problemas cadastrados</h2>
+
+            <a href="{{ url_for('criar_problema') }}" class="btn">
+                + Novo problema
+            </a>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Status</th>
+                    <th>Gravidade</th>
+                    <th>Localização</th>
+                    <th>Ações</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for problema in problemas %}
+
+                <tr>
+
+                    <td>{{ problema.id }}</td>
+
+                    <td>{{ problema.status }}</td>
+
+                    <td>{{ problema.gravidade }}</td>
+
+                    <td>{{ problema.localizacao }}</td>
+
+                    <td class="acoes">
+
+                        <a
+                            href="{{ url_for('editar_problema', id=problema.id) }}"
+                            class="btn editar">
+                            Editar
+                        </a>
+
+
+                        <form
+                            action="{{ url_for('excluir_problema', id=problema.id) }}"
+                            method="POST">
+
+                            <button type="submit" class="btn excluir">
+                                Excluir
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+                {% else %}
+
+                <tr>
+
+                    <td colspan="5">
+                        Nenhum problema cadastrado.
+                    </td>
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Problemas - Denuncia Bairro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                DB
+            </div>
+
+            Denuncia Bairro
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <div class="titulo-section">
+
+            <h2>
+                Ocorrências
+            </h2>
+
+            <span>
+                {{ problemas|length }} ocorrência(s)
+            </span>
+
+        </div>
+
+
+        <a href="{{ url_for('criar_problema') }}"
+           class="btn">
+
+            + Novo problema
+
+        </a>
+
+
+        <div class="ocorrencias">
+
+            {% for problema in problemas %}
+
+            <div class="ocorrencia-card">
+
+                <!-- INFORMAÇÕES -->
+                <div class="ocorrencia-info">
+
+                    <h3>
+                        Problema #{{ problema.id }}
+                    </h3>
+
+
+                    <p class="categoria">
+                        Gravidade: {{ problema.gravidade }}
+                    </p>
+
+
+                    <p class="endereco">
+                        📍 {{ problema.localizacao }}
+                    </p>
+
+                </div>
+
+
+                <!-- STATUS -->
+                <div class="status-area">
+
+                    <div class="status
+                        {% if problema.status == 'Aberto' %}
+                            aberto
+                        {% else %}
+                            andamento
+                        {% endif %}">
+
+                        <span class="status-icon">
+
+                            {% if problema.status == "Aberto" %}
+                                ⚠
+                            {% elif problema.status == "Em andamento" %}
+                                ●
+                            {% else %}
+                                ✓
+                            {% endif %}
+
+                        </span>
+
+
+                        <small>
+                            {{ problema.status }}
+                        </small>
+
+                    </div>
+
+
+                    <a href="{{ url_for('editar_problema',
+                                        id=problema.id) }}"
+                       class="btn-detalhes">
+
+                        Editar
+
+                    </a>
+
+
+                    <form action="{{ url_for('excluir_problema',
+                                             id=problema.id) }}"
+                          method="POST">
+
+                        <button type="submit"
+                                class="btn excluir">
+
+                            Excluir
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="vazio">
+
+                Nenhum problema cadastrado.
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+
+    <!-- MENU INFERIOR -->
+    <nav class="bottom-menu">
+
+        <a href="{{ url_for('index') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏠</span>
+            Início
+
+        </a>
+
+
+        <a href="{{ url_for('listar_problemas') }}"
+           class="menu-item ativo">
+
+            <span class="menu-icon">⚠️</span>
+            Problemas
+
+        </a>
+
+
+        <a href="{{ url_for('listar_usuarios') }}"
+           class="menu-item">
+
+            <span class="menu-icon">👤</span>
+            Usuários
+
+        </a>
+
+
+        <a href="{{ url_for('listar_instituicoes') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏢</span>
+            Instituições
+
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
+```
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        <a href="{{ url_for('index') }}" class="voltar">
+            ← Voltar para o início
+        </a>
+
+    </main>
+
+</body>
+</html>

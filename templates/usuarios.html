@@ -1,0 +1,173 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Usuários - Denuncia Bairro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                DB
+            </div>
+
+            Usuários
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <div class="titulo-section">
+
+            <h2>
+                Usuários cadastrados
+            </h2>
+
+            <span>
+                {{ usuarios|length }} usuário(s)
+            </span>
+
+        </div>
+
+
+        <a href="{{ url_for('criar_usuario') }}"
+           class="btn">
+
+            + Novo usuário
+
+        </a>
+
+
+        <div class="ocorrencias">
+
+            {% for usuario in usuarios %}
+
+            <div class="ocorrencia-card">
+
+                <div class="ocorrencia-info">
+
+                    <h3>
+                        {{ usuario.nome }}
+                    </h3>
+
+                    <p class="categoria">
+                        Usuário
+                    </p>
+
+                    <p class="endereco">
+                        {{ usuario.email }}
+                    </p>
+
+                </div>
+
+
+                <div class="status-area">
+
+                    <a href="{{ url_for('editar_usuario',
+                                        email=usuario.email) }}"
+                       class="btn editar">
+
+                        Editar
+
+                    </a>
+
+
+                    <form action="{{ url_for('excluir_usuario',
+                                             email=usuario.email) }}"
+                          method="POST">
+
+                        <button type="submit"
+                                class="btn excluir">
+
+                            Excluir
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="vazio">
+
+                Nenhum usuário cadastrado.
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+
+    <!-- MENU INFERIOR -->
+    <nav class="bottom-menu">
+
+        <a href="{{ url_for('index') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏠</span>
+
+            Início
+
+        </a>
+
+
+        <a href="{{ url_for('listar_problemas') }}"
+           class="menu-item">
+
+            <span class="menu-icon">⚠️</span>
+
+            Problemas
+
+        </a>
+
+
+        <a href="{{ url_for('listar_usuarios') }}"
+           class="menu-item ativo">
+
+            <span class="menu-icon">👤</span>
+
+            Usuários
+
+        </a>
+
+
+        <a href="{{ url_for('listar_instituicoes') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏢</span>
+
+            Instituições
+
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
+```

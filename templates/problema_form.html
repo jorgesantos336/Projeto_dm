@@ -1,0 +1,235 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if problema %}
+            Editar problema
+        {% else %}
+            Novo problema
+        {% endif %}
+        - Denuncia Bairro
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                DB
+            </div>
+
+            Denuncia Bairro
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <div class="titulo-section">
+
+            <h2>
+
+                {% if problema %}
+                    Editar problema
+                {% else %}
+                    Nova ocorrência
+                {% endif %}
+
+            </h2>
+
+        </div>
+
+
+        <form method="POST"
+              class="formulario">
+
+
+            <!-- STATUS -->
+            <label for="status">
+                Status
+            </label>
+
+            <select id="status"
+                    name="status"
+                    required>
+
+                <option value="">
+                    Selecione o status
+                </option>
+
+
+                <option value="Aberto"
+                    {% if problema and problema.status == "Aberto" %}
+                        selected
+                    {% endif %}>
+
+                    Aberto
+
+                </option>
+
+
+                <option value="Em andamento"
+                    {% if problema and problema.status == "Em andamento" %}
+                        selected
+                    {% endif %}>
+
+                    Em andamento
+
+                </option>
+
+
+                <option value="Resolvido"
+                    {% if problema and problema.status == "Resolvido" %}
+                        selected
+                    {% endif %}>
+
+                    Resolvido
+
+                </option>
+
+            </select>
+
+
+            <!-- GRAVIDADE -->
+            <label for="gravidade">
+                Gravidade
+            </label>
+
+            <select id="gravidade"
+                    name="gravidade"
+                    required>
+
+                <option value="">
+                    Selecione a gravidade
+                </option>
+
+
+                <option value="Baixa"
+                    {% if problema and problema.gravidade == "Baixa" %}
+                        selected
+                    {% endif %}>
+
+                    Baixa
+
+                </option>
+
+
+                <option value="Média"
+                    {% if problema and problema.gravidade == "Média" %}
+                        selected
+                    {% endif %}>
+
+                    Média
+
+                </option>
+
+
+                <option value="Alta"
+                    {% if problema and problema.gravidade == "Alta" %}
+                        selected
+                    {% endif %}>
+
+                    Alta
+
+                </option>
+
+            </select>
+
+
+            <!-- LOCALIZAÇÃO -->
+            <label for="localizacao">
+                Localização
+            </label>
+
+            <input
+                type="text"
+                id="localizacao"
+                name="localizacao"
+                placeholder="Ex: Rua A, Bairro Centro"
+                value="{{ problema.localizacao if problema else '' }}"
+                required
+            >
+
+
+            <button type="submit"
+                    class="btn">
+
+                Salvar problema
+
+            </button>
+
+        </form>
+
+
+        <a href="{{ url_for('listar_problemas') }}"
+           class="voltar">
+
+            ← Voltar para problemas
+
+        </a>
+
+    </main>
+
+
+    <!-- MENU INFERIOR -->
+    <nav class="bottom-menu">
+
+        <a href="{{ url_for('index') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏠</span>
+            Início
+
+        </a>
+
+
+        <a href="{{ url_for('listar_problemas') }}"
+           class="menu-item ativo">
+
+            <span class="menu-icon">⚠️</span>
+            Problemas
+
+        </a>
+
+
+        <a href="{{ url_for('listar_usuarios') }}"
+           class="menu-item">
+
+            <span class="menu-icon">👤</span>
+            Usuários
+
+        </a>
+
+
+        <a href="{{ url_for('listar_instituicoes') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏢</span>
+            Instituições
+
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
+```

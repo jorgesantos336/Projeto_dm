@@ -1,0 +1,173 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if usuario %}
+            Editar usuário
+        {% else %}
+            Novo usuário
+        {% endif %}
+        - Denuncia Bairro
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                DB
+            </div>
+
+            Denuncia Bairro
+
+        </div>
+
+    </header>
+
+
+    <!-- FORMULÁRIO -->
+    <main class="container">
+
+        <div class="titulo-section">
+
+            <h2>
+
+                {% if usuario %}
+                    Editar usuário
+                {% else %}
+                    Novo usuário
+                {% endif %}
+
+            </h2>
+
+        </div>
+
+
+        <form method="POST"
+              class="formulario">
+
+
+            <!-- NOME -->
+            <label for="nome">
+                Nome
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite o nome"
+                value="{{ usuario.nome if usuario else '' }}"
+                required
+            >
+
+
+            <!-- EMAIL -->
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite o email"
+                value="{{ usuario.email if usuario else '' }}"
+                required
+            >
+
+
+            <!-- SENHA -->
+            <label for="senha">
+                Senha
+            </label>
+
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite a senha"
+                value="{{ usuario.senha if usuario else '' }}"
+                required
+            >
+
+
+            <button type="submit"
+                    class="btn">
+
+                Salvar usuário
+
+            </button>
+
+        </form>
+
+
+        <a href="{{ url_for('listar_usuarios') }}"
+           class="voltar">
+
+            ← Voltar para usuários
+
+        </a>
+
+    </main>
+
+
+    <!-- MENU -->
+    <nav class="bottom-menu">
+
+        <a href="{{ url_for('index') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏠</span>
+            Início
+
+        </a>
+
+
+        <a href="{{ url_for('listar_problemas') }}"
+           class="menu-item">
+
+            <span class="menu-icon">⚠️</span>
+            Problemas
+
+        </a>
+
+
+        <a href="{{ url_for('listar_usuarios') }}"
+           class="menu-item ativo">
+
+            <span class="menu-icon">👤</span>
+            Usuários
+
+        </a>
+
+
+        <a href="{{ url_for('listar_instituicoes') }}"
+           class="menu-item">
+
+            <span class="menu-icon">🏢</span>
+            Instituições
+
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
+```
